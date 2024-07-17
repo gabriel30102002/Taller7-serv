@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <style>
+    .foto-container {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    .etiquetas {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #000;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <% arrFotos.forEach(foto => { %>
+    <div class="foto-container">
+      <h2><%= foto.titulo %></h2>
+      <p><%= foto.descripcion %></p>
+      <p>Calificación: <%= foto.calificacion %></p>
+      <img src="<%= foto.ruta %>" alt="<%= foto.titulo %>">
+      <div class="etiquetas">
+        <h3>Etiquetas</h3>
+        <ul>
+          <% foto.etiqueta.forEach(etiqueta => { %>
+            <li><%= etiqueta.texto %></li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+  <% }); %>
+</body>
+</html>
